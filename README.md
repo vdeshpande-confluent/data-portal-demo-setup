@@ -50,9 +50,11 @@ The Terraform code will also create Service Accounts, ACLs and API Keys
 
 After setting up the environment , you could follow [David's blog post](https://confluentinc.atlassian.net/wiki/spaces/PM/pages/3232631844/Demo+the+Data+portal) and run the demo. Alternatively you can follow these steps :
 1. Search and discover existing topics using tags , business metadata and various other filters.
+![image](docs/data_portal.png)
 2. Add yourself as owner and add your email to one of the topics to demo the request access feature. 
+![image](docs/metadata.png)
 3. Create an alias account and add Data discovery role to that account for the current environment and demo the request access feature through that account.
-4. Give the alias account a FlinkDeveloper role and clicking query on one of the topics and if a Flink pool is pre-created in the same region of the topic, run a simple query in Flink and show the data..
+4. Give the alias account a FlinkDeveloper role and clicking query on one of the topics and if a Flink pool is pre-created in the same region of the topic, run a simple select query in Flink and show the data..
 
 
 # Scripts 
@@ -60,6 +62,8 @@ After setting up the environment , you could follow [David's blog post](https://
   - Script updates the timestamp in AVRO schema files for credit card transactions and prepares it for use as a strin, then initializes Terraform, plans and applies infrastructure changes, and retrieves Terraform outputs in JSON format.
 - `./shell/fraud_detection.sh`:
   - Script automates the setup of ksqlDB streams and tables for analyzing credit card transactions, including joining transaction data with customer data and identifying potential fraud cases based on transaction amounts exceeding average credit spend within a specified timeframe.
+
+![image](docs/lineage.png)
 
 # Terraform files
 - `vars.tf`: Main system variables (change it as needed)

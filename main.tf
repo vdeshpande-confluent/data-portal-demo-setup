@@ -411,12 +411,14 @@ resource "confluent_api_key" "app-ksqldb-api-key" {
 
 
 output "app-ksqldb-api-key" {
-  sensitive = true
   value = confluent_api_key.app-ksqldb-api-key.id
 }
 output "app-ksqldb-api-key-value" {
   sensitive = true
   value = confluent_api_key.app-ksqldb-api-key.secret
+}
+output "app-ksqldb-url" {
+  value = confluent_ksql_cluster.main.rest_endpoint
 }
 
 resource "confluent_api_key" "app-manager-schema-api-key" {
@@ -447,4 +449,26 @@ output "app-manager-schema-api-key" {
 output "aapp-manager-schema-api-key-value" {
   sensitive = true
   value = confluent_api_key.app-manager-schema-api-key.secret
+}
+
+
+
+
+# --------------------------------------------------------
+# Flink Compute Pool
+# --------------------------------------------------------
+resource "confluent_flink_compute_pool" "cc_flink_compute_pool" {
+  display_name = "${var.cc_dislay_name}-${random_id.id.hex}"
+  cloud        = var.cc_cloud_provider
+  region       = var.cc_cloud_region
+  max_cfu      = var.cc_compute_pool_cfu
+  environment {
+    id = data.confluent_environment.cc_demo_env.id
+  }
+  depends_on = [
+    confluent_kafka_cluster.cc_kafka_cluster
+  ]
+  lifecycle {
+    prevent_destroy = false
+  }
 }
