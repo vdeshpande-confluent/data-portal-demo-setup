@@ -5,7 +5,7 @@ echo 0 > $STATUS
 
 
 curl --http1.1 \
-    -X "POST" "https://pksqlc-81qknq.us-east-1.aws.confluent.cloud/ksql" \
+    -X "POST" "https://<cloud-ksqldb-url>/ksql" \
     -H "Accept: application/vnd.ksql.v1+json" \
     -H "Content-Type: application/json" \
     --basic --user "<ksqldb-specific-api-key>:<ksqldb-specific-secret>" \
@@ -16,7 +16,7 @@ curl --http1.1 \
 
 
 curl --http1.1 \
-    -X "POST" "https://pksqlc-81qknq.us-east-1.aws.confluent.cloud/ksql" \
+    -X "POST" "https://<cloud-ksqldb-url>ksql" \
     -H "Accept: application/vnd.ksql.v1+json" \
     -H "Content-Type: application/json" \
     --basic --user "<ksqldb-specific-api-key>:<ksqldb-specific-secret>" \
@@ -27,7 +27,7 @@ curl --http1.1 \
 
 
 curl --http1.1 \
-    -X "POST" "https://pksqlc-81qknq.us-east-1.aws.confluent.cloud/ksql" \
+    -X "POST" "https://<cloud-ksqldb-url>/ksql" \
     -H "Accept: application/vnd.ksql.v1+json" \
     -H "Content-Type: application/json" \
     --basic --user "<ksqldb-specific-api-key>:<ksqldb-specific-secret>" \
@@ -39,7 +39,7 @@ curl --http1.1 \
 
 
 curl --http1.1 \
-    -X "POST" "https://pksqlc-81qknq.us-east-1.aws.confluent.cloud/ksql" \
+    -X "POST" "https://<cloud-ksqldb-url>/ksql" \
     -H "Accept: application/vnd.ksql.v1+json" \
     -H "Content-Type: application/json" \
     --basic --user "<ksqldb-specific-api-key>:<ksqldb-specific-secret>" \
@@ -50,7 +50,7 @@ curl --http1.1 \
 
 
 curl --http1.1 \
-    -X "POST" "https://pksqlc-81qknq.us-east-1.aws.confluent.cloud/ksql" \
+    -X "POST" "https://<cloud-ksqldb-url>ksql" \
     -H "Accept: application/vnd.ksql.v1+json" \
     -H "Content-Type: application/json" \
     --basic --user "<ksqldb-specific-api-key>:<ksqldb-specific-secret>" \
