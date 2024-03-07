@@ -2,7 +2,7 @@
 
 This Terraform setup aims to facilitate the demonstration of a data portal for analyzing credit card transactions and detecting potential fraud, following the methodology outlined in [David's blog post](https://confluentinc.atlassian.net/wiki/spaces/PM/pages/3232631844/Demo+the+Data+portal).
 
-
+This repository sets up a multiple resources for managing tags and business metadata in Confluent Schema Registry. Tags like "PII", "Security","Private" and "Financial" are created with corresponding descriptions. Tag bindings are established for various Kafka topics linking them to relevant tags. Additionally, business metadata definitions and bindings are set up to provide context about data sources, sinks, and access permissions.
 
 # Pre-requisites
 - User account on [Confluent Cloud](https://www.confluent.io/confluent-cloud/tryfree)
@@ -41,12 +41,19 @@ export CC_SR_ID=<SPECIFY YOUR SCHEMA REGISTRY ID>
 
 ## Start Demo
 - Run command: `./demo_start.sh`
-- Retreive and replace <cloud-ksqldb-url> , <<ksqldb-specific-api-key>,<ksqldb-specific-secret>> from   terraform output and replace it in `./shell/fraud_detection.sh`
+- Retreive and replace `cloud-ksqldb-url` ,`ksqldb-specific-api-key`,`ksqldb-specific-secret` from terraform output and replace it in `./shell/fraud_detection.sh`
 - Run command: `./shell/fraud_detection.sh`
 - Uncomment data_portal.tf 
 - Run Command: `./demo_start.sh`
 
 The Terraform code will also create Service Accounts, ACLs and API Keys
+
+After setting up the environment , you could follow [David's blog post](https://confluentinc.atlassian.net/wiki/spaces/PM/pages/3232631844/Demo+the+Data+portal) and run the demo. Alternatively you can follow these steps :
+1. Search and discover existing topics using tags , business metadata and various other filters.
+2. Add yourself as owner and add your email to one of the topics to demo the request access feature. 
+3. Create an alias account and add Data discovery role to that account for the current environment and demo the request access feature through that account.
+4. Give the alias account a FlinkDeveloper role and clicking query on one of the topics and if a Flink pool is pre-created in the same region of the topic, run a simple query in Flink and show the data..
+
 
 # Scripts 
 - `./demo_start.sh`: 
