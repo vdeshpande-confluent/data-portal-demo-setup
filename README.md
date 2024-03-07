@@ -39,7 +39,7 @@ export CC_ENV_ID=<SPECIFY YOUR ENVIRONMENT ID>
 export CC_SR_ID=<SPECIFY YOUR SCHEMA REGISTRY ID>
 ```
 
-## Start Demo
+## Setup the env for demo 
 - Run command: `./demo_start.sh`
 - Retreive and replace `cloud-ksqldb-url` ,`ksqldb-specific-api-key`,`ksqldb-specific-secret` from terraform output and replace it in `./shell/fraud_detection.sh`
 - Run command: `./shell/fraud_detection.sh`
