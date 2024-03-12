@@ -1,6 +1,6 @@
 # Overview
 
-This Terraform setup aims to facilitate the demonstration of a data portal for analyzing credit card transactions and detecting potential fraud, following the methodology outlined in [David's blog post](https://confluentinc.atlassian.net/wiki/spaces/PM/pages/3232631844/Demo+the+Data+portal).
+This Terraform setup aims to facilitate the demonstration of a data portal for analyzing credit card transactions and detecting potential fraud, following the methodology outlined in David's blog post[Demo the Data Portal] on wiki.
 
 This repository sets up a multiple resources for managing tags and business metadata in Confluent Schema Registry. Tags like "PII", "Security","Private" and "Financial" are created with corresponding descriptions. Tag bindings are established for various Kafka topics linking them to relevant tags. Additionally, business metadata definitions and bindings are set up to provide context about data sources, sinks, and access permissions.
 
@@ -48,7 +48,7 @@ export CC_SR_ID=<SPECIFY YOUR SCHEMA REGISTRY ID>
 
 The Terraform code will also create Service Accounts, ACLs and API Keys
 
-After setting up the environment , you could follow [David's blog post](https://confluentinc.atlassian.net/wiki/spaces/PM/pages/3232631844/Demo+the+Data+portal) and run the demo. Alternatively you can follow these steps :
+After setting up the environment , you can follow these steps :
 1. Search and discover existing topics using tags , business metadata and various other filters.
 ![image](docs/data_portal.png)
 2. Add yourself as owner and add your email to one of the topics to demo the request access feature. 
