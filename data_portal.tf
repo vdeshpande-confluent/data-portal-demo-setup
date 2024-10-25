@@ -1003,5 +1003,29 @@
 #  prevent_destroy = false
 #  }
 # }
+resource "confluent_schema" "avro-test-data-quality" {
+  schema_registry_cluster {
+    id = data.confluent_schema_registry_cluster.cc_sr_cluster.id
+  }
+  rest_endpoint = data.confluent_schema_registry_cluster.cc_sr_cluster.rest_endpoint
+  subject_name = "test-data-quality-value"
+  format = "AVRO"
+  schema = file("./schemas/transactions/credit_card.avsc")
+  credentials {
+    key    = confluent_api_key.app-manager-schema-api-key.id
+    secret = confluent_api_key.app-manager-schema-api-key.secret
+  }
+  ruleset {
+    domain_rules {
+        name="checkLen"
+        kind="CONDITION"
+        type="CEL"
+        mode="WRITE"
+        expr="size(message.credit_card_last_four)==4"
+
+    }
+  }
+}
+
 
 
